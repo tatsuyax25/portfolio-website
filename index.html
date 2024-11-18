@@ -10,23 +10,23 @@
   <!-- Navigation Bar Links -->
   <header>
     <nav aria-label="Main Navigation">
-      <button class="hamburger" aria-label="Toggle Menu">
+      <button class="hamburger" aria-label="Toggle Menu" aria-expanded="false">
         ☰
       </button>
       <ul class="nav-links" role="menu">
-        <li role="menuitem"><a href="#home">Home</a></li>
-        <li role="menuitem"><a href="#about">About</a></li>
-        <li role="menuitem"><a href="#projects">Projects</a></li>
-        <li role="menuitem"><a href="#contact">Contact</a></li>
+        <li role="menuitem" tabindex="0"><a href="#home" aria-current="page">Home</a></li>
+        <li role="menuitem" tabindex="0"><a href="#about">About</a></li>
+        <li role="menuitem" tabindex="0"><a href="#projects">Projects</a></li>
+        <li role="menuitem" tabindex="0"><a href="#contact">Contact</a></li>
       </ul>
     </nav>
-    <button id="theme-toggle" aria-label="Toggle Theme">🌙</button>
+    <button id="theme-toggle" aria-label="Toggle Theme" aria-live="polite">🌙</button>
   </header>
 
   <!-- Home Banner -->
   <section id="home" class="hero">
     <h1>Welcome to My Portfolio</h1>
-    <p class="typewriter">Hi, I'm Miguel Ureña, a Full-Stack Software Engineer</p>
+    <p class="typewriter" aria-live="polite">Hi, I'm Miguel Ureña, a Full-Stack Software Engineer</p>
   </section>
 
   <!-- About Section -->
@@ -47,19 +47,23 @@
       to my current focus on full-stack development, I have always
       prioritized user experience, clean code, and impactful results.
     </p>
+    <a href="#contact" class="cta-link">Let's Collaborate</a>
   </section>
 
   <!-- Projects Section -->
   <section id="projects">
     <h2>My Projects</h2>
     <div class="carousel">
+      <!-- Plantivity Project -->
       <div class="carousel-item">
         <h3>Plantivity</h3>
         <p>
           Plantivity motivates users by completing their daily self-care tasks and rewarding them with a badge. They assign
           themselves their three daily tasks and points, which help your self-care plant grow!
         </p>
+        <a href="https://github.com/tatsuyax25/team6-hackathon-fe" target="_blank" class="project-link">View on GitHub</a>
       </div>
+      <!-- Snake Web Game Project -->
       <div class="carousel-item">
         <h3>Snake Web Game JS</h3>
         <p>
@@ -67,7 +71,9 @@
           food
           increases the snake's length, adding to the challenge.
         </p>
+        <a href="https://github.com/tatsuyax25/snake-game-js" target="_blank" class="project-link">View on GitHub</a>
       </div>
+      <!-- Connect 4 Project -->
       <div class="carousel-item">
         <h3>Connect 4 Web Game</h3>
         <p>
@@ -75,6 +81,7 @@
           first
           to get four of their discs in a row, either horizontally, vertically, or diagonally, wins the game.
         </p>
+        <a href="https://github.com/tatsuyax25/connect-four" target="_blank" class="project-link">View on GitHub</a>
       </div>
     </div>
   </section>
@@ -84,10 +91,12 @@
       <h2>Contact Me</h2>
       <form>
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name" placeholder="Your Name" required>
+        <input type="text" id="name" name="name" placeholder="Jane Doe" required aria-describedby="name-help">
+        <span id="name-help" class="visually-hidden">Enter your full name</span>
 
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" placeholder="Your Email" required>
+        <input type="email" id="email" name="email" placeholder="jane.doe@example.com" required aria-describedby="email-help">
+        <span id="email-help" class="visually-hidden">Enter a valid email address</span>
 
         <label for="subject">Subject:</label>
         <input type="text" id="subject" name="subject" placeholder="Subject" required>
@@ -102,6 +111,10 @@
     <!-- Footer -->
     <footer>
       <p>&copy; 2024 Miguel Ureña</p>
+      <ul>
+        <li><a href="https://github.com/tatsuyax25" target="_blank" aria-label="GitHub">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/urena-miguel82/" target="_blank" aria-label="LinkedIn">LinkedIn</a></li>
+      </ul>
     </footer>
 
     <!-- JavaScript -->
