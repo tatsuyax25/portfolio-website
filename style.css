@@ -69,6 +69,11 @@ header nav ul li a {
   text-decoration: none;
 }
 
+:focus {
+  outline: 2px solid #ff9800;
+  outline-offset: 4px;
+}
+
 /* Hero Section */
 .hero {
   display: flex;
