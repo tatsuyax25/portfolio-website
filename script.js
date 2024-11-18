@@ -10,14 +10,21 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Carousel
 const carousel = document.querySelector('.carousel');
-let currentIndex = 0;
 
-function showNextItem() {
-  currentIndex = (currentIndex + 1) % carousel.children.length;
-  carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
-}
-
-setInterval(showNextItem, 3000);
+fetch('projects.json')
+  .then(response => response.json())
+  .then(data => {
+    data.forEach(project => {
+      const projectItem = document.createElement('div');
+      projectItem.classList.add('carousel-item');
+      projectItem.innerHTML = `
+        <h3>${project.title}</h3>
+        <p>${project.description}</p>
+        <a href="${project.link}" target="_blank">View Project</a>
+      `;
+      projectContainer.appendChild(projectItem);
+    });
+  });
 
 // Hamburger
 const hamburger = document.querySelector('.hamburger');
