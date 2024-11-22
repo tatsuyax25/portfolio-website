@@ -56,26 +56,20 @@ hamburger.addEventListener('click', () => {
 
 // Dark Mode
 const themeToggle = document.getElementById('theme-toggle');
-const root = document.documentElement;
+const body = document.body;
 
-// Set initial them based on localStorage
-if (localStorage.getItem('theme') === 'dark') {
-  root.classList.add('dark-theme');
-  themeToggle.checked = "☀️";
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'dark') {
+  body.classList.add('dark-theme');
+  themeToggle.textContent = "☀️";
 } else {
-  root.classList.remove('dark-theme');
-  themeToggle.checked = "🌙";
+  body.classList.remove('dark-theme');
+  themeToggle.textContent = "🌙";
 }
 
 // Toggle theme on click
 themeToggle.addEventListener('click', () => {
-  if (root.classList.contains('dark-theme')) {
-    root.classList.remove('dark-theme');
-    themeToggle.checked = "🌙";
-    localStorage.setItem("theme", "light");
-  } else {
-    root.classList.add('dark-theme');
-    themeToggle.checked = "☀️";
-    localStorage.setItem("theme", "dark");
-  }
+  const isDark = body.classList.toggle('dark-theme');
+  themeToggle.textContent = isDark ? "☀️" : "🌙";
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
 });
