@@ -249,13 +249,28 @@ footer ul li a:hover {
     top: 50px;
     right: 0;
     width: 200px;
+    max-height: 0;
+    overflow: hidden;
   }
 
   .nav-links.active {
     display: flex;
+    max-height: 500px;
   }
 
   .hamburger {
     display: block;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+  }
+
+  .carousel-item {
+    padding: 15px;
   }
 }
