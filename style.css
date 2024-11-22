@@ -121,6 +121,12 @@ form input, form textarea {
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+form input:focus, form textarea:focus {
+  border-color: #ff9800;
+  outline: none;
 }
 
 form button {
@@ -130,6 +136,7 @@ form button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  transition: background 0.3s;
 }
 
 form button:hover {
