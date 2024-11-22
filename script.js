@@ -49,7 +49,9 @@ const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
 
 hamburger.addEventListener('click', () => {
-  navLinks.classList.toggle('active');
+  const isActive = navLinks.classList.toggle('active');
+  hamburger.setAttribute('aria-expanded', isActive);
+  navLinks.setAttribute('aria-hidden', !isActive);
 });
 
 // Dark Mode
