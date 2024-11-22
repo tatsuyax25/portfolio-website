@@ -13,20 +13,35 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Carousel
 const carousel = document.querySelector('.carousel');
+const projectContainer = document.createElement('div');
+carousel.appendChild(projectContainer);
 
 fetch('projects.json')
-  .then(response => response.json())
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Failed to fetch project data.');
+    }
+    return response.json();
+  })
   .then(data => {
+    if (!data.length) {
+      projectContainer.innerHTML = `<p>No projects available at the moment.</p>`;
+      return;
+    }
     data.forEach(project => {
       const projectItem = document.createElement('div');
       projectItem.classList.add('carousel-item');
       projectItem.innerHTML = `
         <h3>${project.title}</h3>
         <p>${project.description}</p>
-        <a href="${project.link}" target="_blank">View Project</a>
+        <a href="${project.link}" target="_blank" rel="noopener">View Project</a>
       `;
       projectContainer.appendChild(projectItem);
     });
+  })
+  .catch(error => {
+    console.error('Error fetching projects:', error);
+    projectContainer.innerHTML = `<p>Failed to load projects. Please try again later.</p>`;
   });
 
 // Hamburger
