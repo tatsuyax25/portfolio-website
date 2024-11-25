@@ -51,7 +51,8 @@ header {
   padding: 5px 10px;
 }
 
-.nav-links li a:hover, .nav-links li a:focus {
+.nav-links li a:hover,
+.nav-links li a:focus {
   color: #ff9800;
 }
 
@@ -67,6 +68,16 @@ header {
   outline-offset: 4px;
 }
 
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  /* Keep particles behind all content */
+}
+
 /* Hero Section */
 .hero {
   display: flex;
@@ -74,22 +85,66 @@ header {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: url('https://source.unsplash.com/1600x900/?coding,technology') no-repeat center center/cover;
-  color: black;
+  position: relative;
   text-align: center;
+  color: black;
+  background: url('https://source.unsplash.com/1600x900/?coding,technology') no-repeat center center/cover;
+  z-index: 1;
+  /* Ensure it's above the particles */
 }
 
 body.dark-mode .hero {
   color: white;
+  /* Dark mode font color */
 }
 
 .hero h1 {
   font-size: 2.5rem;
   margin: 0;
+  z-index: 2;
+  /* Ensure it stays above particles */
+  color: inherit;
+  /* Match light/dark mode */
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+  /* Improve readability */
 }
 
-.hero p {
+.typewriter {
   font-size: 1.5rem;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid black;
+  /* Default for light mode */
+  animation: typing 4s steps(40, end), blink 0.75s step-end infinite;
+  z-index: 2;
+  /* Ensure it stays above particles */
+}
+
+body.dark-mode .typewriter {
+  border-right-color: white;
+  /* Adjust for dark mode */
+}
+
+/* Keyframes */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  from {
+    border-color: transparent;
+  }
+
+  to {
+    border-color: inherit;
+    /* Matches mode */
+  }
 }
 
 /* Sections */
@@ -120,7 +175,8 @@ form {
   gap: 10px;
 }
 
-form input, form textarea {
+form input,
+form textarea {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -128,7 +184,8 @@ form input, form textarea {
   transition: border-color 0.3s;
 }
 
-form input:focus, form textarea:focus {
+form input:focus,
+form textarea:focus {
   border-color: #ff9800;
   outline: none;
 }
@@ -178,33 +235,6 @@ footer ul li a {
 
 footer ul li a:hover {
   color: #ff9800;
-}
-
-/* Typewriter Effect */
-.typewriter {
-  font-size: 1.5rem;
-  overflow: hidden;
-  white-space: nowrap;
-  border-right: 2px solid white;
-  animation: typing 4s steps(40, end), blink .75s step-end infinite;
-}
-
-@keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
-
-@keyframes blink {
-  from {
-    border-color: transparent;
-  }
-  to {
-    border-color: white;
-  }
 }
 
 /* Carousel */

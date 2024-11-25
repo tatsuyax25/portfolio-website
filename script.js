@@ -80,3 +80,43 @@ themeToggle.addEventListener("click", () => {
     localStorage.setItem("theme", "dark");
   }
 });
+
+// Initialize Particles.js
+particlesJS("particles-js", {
+  particles: {
+    number: { value: 100 },
+    color: { value: "#00ffff" },
+    shape: { type: "circle" },
+    opacity: { value: 0.5 },
+    size: { value: 3 },
+    line_linked: {
+      enable: true,
+      distance: 150,
+      color: "#00ffff",
+      opacity: 0.4,
+      width: 1,
+    },
+    move: {
+      enable: true,
+      speed: 3,
+      direction: "none",
+      random: false,
+      straight: false,
+      out_mode: "out",
+      bounce: false,
+    },
+  },
+  interactivity: {
+    detect_on: "canvas",
+    events: {
+      onhover: { enable: true, mode: "repulse" },
+      onclick: { enable: true, mode: "push" },
+      resize: true,
+    },
+    modes: {
+      repulse: { distance: 100 },
+      push: { particles_nb: 4 },
+    },
+  },
+  retina_detect: true,
+});
