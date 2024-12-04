@@ -229,6 +229,52 @@ body.dark-mode #projects .project-card {
   }
 }
 
+/* Skills Carousel */
+.skills-carousel {
+  margin-top: 30px;
+}
+
+.carousel-wrapper {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.carousel {
+  display: flex;
+  gap: 20px;
+  animation: scroll 10s linear infinite;
+}
+
+.carousel-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 120px;
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.carousel-item i {
+  font-size: 3rem;
+  color: var(--accent-color);
+  margin-bottom: 10px;
+}
+
+.carousel-item p {
+  font-size: 1rem;
+  color: var(--text-color);
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
 /* Contact */
 form {
   max-width: 500px;
