@@ -209,6 +209,11 @@ body.dark-mode #projects .project-card {
 }
 
 /* Hero Image */
+:root {
+  --accent-color: #ff9800;
+  --accent-hover-color: #ffa726;
+}
+
 .hero-image-container {
   flex-shrink: 0;
 }
