@@ -242,6 +242,7 @@ body.dark-mode #projects .project-card {
   border-radius: 50%;
   box-shadow: 0 0 30px 10px var(--accent-color);
   animation: pulse 2s infinite alternate;
+  z-index: 1;
 }
 
 @keyframes pulse {
